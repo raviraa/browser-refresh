@@ -18,11 +18,20 @@ tell application "Firefox"
 end tell
 """
 
+MacSafariCmd = """
+tell application "Safari"
+  activate
+  tell its first document
+    set its URL to (get its URL)
+  end tell
+end tell
+"""
 
 Commands = {
   darwin: {
     firefox: MacFirefoxCmd,
-    chrome: MacChromeCmd
+    chrome: MacChromeCmd,
+    safari: MacSafariCmd
   },
   linux: {
     firefox: ['search', '--sync', '--onlyvisible', '--class', 'firefox', 'key', 'F5', 'windowactivate'],
@@ -50,7 +59,7 @@ RunLinuxCmd = (BrowserArgs) ->
 RunCmd = (browser) ->
   if OS.platform() == 'darwin'
     RunMacCmd(Commands['darwin'][browser])
-  else if OS.platform() == 'linux'
+  else if OS.platform() == 'linux' and browser isnt 'safari'
     RunLinuxCmd(Commands['linux'][browser])
   else
     new StatusView(type: 'alert', message: 'Unsupported platform')
@@ -61,5 +70,7 @@ BrowserOpen = ()->
     RunCmd('firefox')
   if(atom.config.get 'browser-refresh.googleChrome')
     RunCmd('chrome')
+  if(atom.config.get 'browser-refresh.safari')
+    RunCmd('safari')
 
 module.exports = BrowserOpen
