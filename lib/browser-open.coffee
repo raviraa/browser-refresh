@@ -11,11 +11,15 @@ tell application "Google Chrome"
 end tell
 """
 
+
 MacFirefoxCmd = """
+set a to path to frontmost application as text
 tell application "Firefox"
-  activate
-  tell application "System Events" to keystroke "r" using command down
+	activate
+	tell application "System Events" to keystroke "r" using command down
 end tell
+delay 0.2
+activate application a
 """
 
 MacSafariCmd = """
@@ -66,6 +70,8 @@ RunCmd = (browser) ->
 
 
 BrowserOpen = ()->
+  if(atom.config.get 'browser-refresh.saveFileBeforeRefresh')
+    atom.workspace.getActiveEditor().save()
   if(atom.config.get 'browser-refresh.firefox')
     RunCmd('firefox')
   if(atom.config.get 'browser-refresh.googleChrome')
