@@ -9,7 +9,7 @@ module.exports =
     googleChrome: true
     firefox: false
     safari: false
-    saveFileBeforeRefresh: false
+    saveFilesBeforeRefresh: false
 
   activate: (state) ->
     atom.workspaceView.command "browser-refresh:open", -> BrowserOpen()

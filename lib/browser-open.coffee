@@ -70,8 +70,8 @@ RunCmd = (browser) ->
 
 
 BrowserOpen = ()->
-  if(atom.config.get 'browser-refresh.saveFileBeforeRefresh')
-    atom.workspace.getActiveEditor().save()
+  if(atom.config.get 'browser-refresh.saveFilesBeforeRefresh')
+    atom.workspace.saveAll()
   if(atom.config.get 'browser-refresh.firefox')
     RunCmd('firefox')
   if(atom.config.get 'browser-refresh.googleChrome')
