@@ -39,7 +39,7 @@ Commands = {
   },
   linux: {
     firefox: ['search', '--sync', '--onlyvisible', '--class', 'firefox', 'key', 'F5', 'windowactivate'],
-    chrome: ['search', '--sync', '--onlyvisible', '--class', 'firefox', 'key', 'F5', 'windowactivate']
+    chrome: ['search', '--sync', '--onlyvisible', '--class', 'chrome', 'key', 'F5', 'windowactivate']
   }
 }
 
@@ -70,6 +70,8 @@ RunCmd = (browser) ->
 
 
 BrowserOpen = ()->
+  if(atom.config.get 'browser-refresh.saveCurrentFileBeforeRefresh')
+    atom.workspace.getActiveEditor().save()
   if(atom.config.get 'browser-refresh.saveFilesBeforeRefresh')
     atom.workspace.saveAll()
   if(atom.config.get 'browser-refresh.firefox')
