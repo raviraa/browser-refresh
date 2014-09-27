@@ -2,7 +2,7 @@
 
 Reloads browser from within the atom editor using keyboard shortcut `f5` or `cmd-shift-s`. Tested on **mac** and **linux**.
 
-On Mac OSX, Chrome and Chrome Canary reload works without stealing focus. Firefox and Safari will steal the focus though.
+On Mac OSX, Chrome and Chrome Canary can refresh without stealing focus (optional). Firefox and Safari will steal the focus.
 
 On Linux, you need to install `xdotool`. `sudo apt-get install xdotool` on ubuntu.
 
