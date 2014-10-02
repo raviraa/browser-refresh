@@ -1,8 +1,8 @@
 # browser-refresh package
 
-Reloads browser from within the atom editor using keyboard shortcut `f5`. Tested on **mac** and **linux**.
+Reloads browser from within the atom editor using keyboard shortcut `f5` or `cmd-shift-s`. Tested on **mac** and **linux**.
 
-On Mac, Chrome reload works without stealing focus. Firefox and Safari will steal the focus though.
+On Mac OSX, Chrome and Chrome Canary can refresh without stealing focus (optional). Firefox and Safari will steal the focus.
 
 On Linux, you need to install `xdotool`. `sudo apt-get install xdotool` on ubuntu.
 
@@ -11,5 +11,6 @@ Commands to refresh browsers are taken from [sublime plugin](https://github.com/
 ## Supported browsers
 
 - Chrome
+- Chrome Canary
 - Firefox
 - Safari (Mac only)
