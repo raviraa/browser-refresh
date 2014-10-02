@@ -6,10 +6,12 @@ BrowserOpen = require "./browser-open"
 module.exports =
 
   configDefaults:
-    googleChrome: true
-    firefox: false
-    safari: false
-    saveFilesBeforeRefresh: false
+    saveFilesBeforeRefresh  : false
+    chromeBackgroundRefresh : true
+    googleChromeCanary      : true
+    googleChrome            : true
+    firefox                 : false
+    safari                  : false
 
   activate: (state) ->
     atom.workspaceView.command "browser-refresh:open", -> BrowserOpen()
