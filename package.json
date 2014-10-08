@@ -1,7 +1,7 @@
 {
   "name": "browser-refresh",
   "main": "./lib/browser-refresh",
-  "version": "0.7.0",
+  "version": "0.6.4",
   "description": "Refresh browser from atom editor",
   "repository": {
     "type": "git",
