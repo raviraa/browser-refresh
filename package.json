@@ -21,5 +21,8 @@
   "dist": {
     "shasum": "7162bc46a64a5c52616ac006aced47e7a1a85080"
   },
-  "_from": "/var/folders/1q/3sx49k4165d5j_57156fl8700000gp/T/d-114419-57393-vdq60p/package.tgz"
+  "_from": "/var/folders/1q/3sx49k4165d5j_57156fl8700000gp/T/d-114419-57393-vdq60p/package.tgz",
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.5"
+  }
 }
