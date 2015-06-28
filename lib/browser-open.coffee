@@ -138,17 +138,20 @@ BrowserOpen = ()->
     atom.workspace.getActiveEditor().save()
   if(atom.config.get 'browser-refresh.saveFilesBeforeRefresh')
     atom.workspace.saveAll()
-  if(atom.config.get 'browser-refresh.firefox')
-    RunCmd('firefox')
-  if(atom.config.get 'browser-refresh.firefoxNightly')
-    RunCmd('firefoxNightly')
-  if(atom.config.get 'browser-refresh.firefoxDeveloperEdition')
-    RunCmd('firefoxDeveloperEdition')
-  if(atom.config.get 'browser-refresh.googleChrome')
-    RunCmd('chrome')
-  if(atom.config.get 'browser-refresh.googleChromeCanary')
-    RunCmd('chromeCanary')
-  if(atom.config.get 'browser-refresh.safari')
-    RunCmd('safari')
+
+  setTimeout ->
+    if(atom.config.get 'browser-refresh.firefox')
+      RunCmd('firefox')
+    if(atom.config.get 'browser-refresh.firefoxNightly')
+      RunCmd('firefoxNightly')
+    if(atom.config.get 'browser-refresh.firefoxDeveloperEdition')
+      RunCmd('firefoxDeveloperEdition')
+    if(atom.config.get 'browser-refresh.googleChrome')
+      RunCmd('chrome')
+    if(atom.config.get 'browser-refresh.googleChromeCanary')
+      RunCmd('chromeCanary')
+    if(atom.config.get 'browser-refresh.safari')
+      RunCmd('safari')
+  , atom.config.get 'browser-refresh.waitMillisecondsBetweenSaveAndRefresh'
 
 module.exports = BrowserOpen

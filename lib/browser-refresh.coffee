@@ -27,6 +27,9 @@ module.exports =
     firefoxDeveloperEdition:
       type: 'boolean'
       default: false
+    waitMillisecondsBetweenSaveAndRefresh:
+      type: 'number'
+      default: 0
 
   activate: (state) ->
     atom.commands.add 'atom-workspace', 'browser-refresh:open': ->
