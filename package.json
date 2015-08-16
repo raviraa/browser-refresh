@@ -11,6 +11,11 @@
   "engines": {
     "atom": ">0.50.0"
   },
+  "activationCommands": {
+    "atom-workspace": [
+      "browser-refresh:refresh"
+    ]
+  },
   "readme": "# browser-refresh package\n\n",
   "readmeFilename": "README.md",
   "bugs": {
