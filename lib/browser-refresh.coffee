@@ -27,6 +27,9 @@ module.exports =
     firefoxDeveloperEdition:
       type: 'boolean'
       default: false
+    activateBrowser:
+      type: 'boolean'
+      default: false
 
   activate: (state) ->
     atom.commands.add 'atom-workspace', 'browser-refresh:open': ->
