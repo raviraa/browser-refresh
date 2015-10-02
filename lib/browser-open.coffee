@@ -2,24 +2,23 @@
 OS = require 'os'
 StatusView = require './status-view'
 
-MacChromeActivation = atom.config.get 'browser-refresh.chromeBackgroundRefresh'
-if (MacChromeActivation == false)
-  MacChromeActivation = "activate"
-else
-  MacChromeActivation = ""
+activate = false
+if atom.config.get('browser-refresh.chromeBackgroundRefresh') or atom.config.get('browser-refresh.activateBrowser')
+  activate = true
 
 MacChromeCmd = """
 tell application "Google Chrome"
-  #{MacChromeActivation}
+  #{if activate then 'activate' else ''}
   "chrome"
   set winref to a reference to (first window whose title does not start with "Developer Tools - ")
   set winref's index to 1
   reload active tab of winref
 end tell
 """
+
 MacChromeCanaryCmd = """
 tell application "Google Chrome Canary"
-  #{MacChromeActivation}
+  #{if activate then 'activate' else ''}
   "chrome canary"
   set winref to a reference to (first window whose title does not start with "Developer Tools - ")
   set winref's index to 1
@@ -33,8 +32,7 @@ tell application "Firefox"
 	activate
 	tell application "System Events" to keystroke "r" using command down
 end tell
-delay 0.2
-activate application a
+#{if activate then '' else 'delay 0.2\nactivate application a'}
 """
 
 MacFirefoxNightlyCmd = """
@@ -43,8 +41,7 @@ tell application "FirefoxNightly"
 	activate
 	tell application "System Events" to keystroke "r" using command down
 end tell
-delay 0.2
-activate application a
+#{if activate then '' else 'delay 0.2\nactivate application a'}
 """
 
 MacFirefoxDeveloperEditionCmd = """
@@ -53,13 +50,12 @@ tell application "FirefoxDeveloperEdition"
 	activate
 	tell application "System Events" to keystroke "r" using command down
 end tell
-delay 0.2
-activate application a
+#{if activate then '' else 'delay 0.2\nactivate application a'}
 """
 
 MacSafariCmd = """
 tell application "Safari"
-  activate
+  #{if activate then 'activate' else ''}
   tell its first document
     set its URL to (get its URL)
   end tell
