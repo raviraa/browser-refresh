@@ -29,7 +29,7 @@ module.exports =
       default: false
 
   activate: (state) ->
-    atom.commands.add 'atom-workspace', 'browser-refresh:open': ->
+    atom.commands.add 'atom-workspace', 'browser-refresh:refresh': ->
       BrowserOpen()
 
   deactivate: ->
