@@ -1,3 +1,7 @@
+# NOT MAINTAINED
+This plugin is not actively maintained. I have stopped using Atom. 
+
+
 # browser-refresh package
 
 Reloads browser from within the atom editor using keyboard shortcut `f5` or `alt-shift-cmd-s`. Tested on **mac** and **linux**.
