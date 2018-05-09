@@ -1,5 +1,5 @@
 # NOT MAINTAINED
-This plugin is not actively maintained. I have stopped using Atom. 
+This plugin is not actively maintained. I have stopped using Atom. PR's always welcome.
 
 
 # browser-refresh package
